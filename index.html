@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Booking Now</title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/bootstrap-select-country.min.css" />
+    <meta name="robots" content="noindex, follow">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG2YHIuPJYMOJzS6wSw5eZ0dTYXnhZFLs&libraries=places"></script>
+
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" style="margin: 0;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">NowWorld.COM</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Flights</a></li>
+              <li><a href="#">Hotels</a></li>
+              <li><a href="#">Transfers</a></li>
+              <li><a href="#">Tours</a></li>
+              <li><a href="#">Activities</a></li>
+              <li><a href="#">Meet & Greet</a></li>
+              <li><a href="#">Offline Request</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <section id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row" style="display: flex; justify-content: center;">
+                    <div class="col-sm-12 col-xs-12 col-md-6">
+                        <div class="booking-form">
+                            <form>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <span class="form-label">City Or Destination</span>
+                                            <input class="form-control" id="search_input" type="text" placeholder="Enter a City autocomplete">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="display: flex; justify-content: center;">
+                                    <div class="col-sm-6 col-xs-9">
+                                        <div class="form-group text-center">
+                                            <span class="form-label">Select Country With Flag</span>
+                                            <div class="select-box">
+                                                <div class="selected-option">
+                                                    <div>
+                                                        <span class="iconify" data-icon="flag:eg-4x3"></span>
+                                                        <strong>Egypt</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="options">
+                                                    <input type="text" class="search-box" placeholder="Search Country Name">
+                                                    <ol>
+                                        
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="form-label">Check In:</span>
+                                        <input class="form-control" onchange="call()" id="d1" type="date">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="form-label">Check Out:</span>
+                                        <input class="form-control" onchange="call()" id="d2" type="date">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span class="form-label">Nights</span>
+                                        <input class="form-control" id="nights" type="text" disabled>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./js/bootstrap-select-country.min.js"></script>
+
+    <script>
+        // Countrypicker
+        $('.countrypicker').countrypicker();
+        var searchInput = 'search_input';
+
+        $(document).ready(function(){
+            var autocomplete;
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)),{
+                types: ['geocode'],
+            });
+        });
+    </script>
+        <script src="./js/script.js"></script>
+</body>
+</html>
